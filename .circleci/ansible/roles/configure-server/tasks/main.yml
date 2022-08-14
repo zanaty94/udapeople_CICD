@@ -1,4 +1,14 @@
 ---
+- name: "update packages."
+  become: true
+  apt:
+    update_cache: yes
+
+- namne: "upgrade packages."
+  become: true
+  apt:
+    upgrade: yes
+
 - name: "Add Node.js from Node.js 13"
   become: true
   shell: |
