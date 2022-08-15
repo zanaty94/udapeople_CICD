@@ -308,7 +308,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            sudp apt -y install tar gzip curl
+            sudo apt -y install tar gzip curl
       - run:
           name: Package backend
           command: |
