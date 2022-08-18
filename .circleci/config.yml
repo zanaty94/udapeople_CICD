@@ -287,14 +287,14 @@ jobs:
           VERSION: "1"
           ENVIRONMENT: "production"
           TYPEORM_CONNECTION: $TYPEORM_CONNECTION
-          TYPEORM_ENTITIES: "./modules/domain/**/*.entity{.ts,.js}"
+          TYPEORM_ENTITIES: "./src/modules/domain/**/*.entity{.ts,.js}"
           TYPEORM_HOST: $TYPEORM_HOST
           TYPEORM_PORT: $TYPEORM_PORT
           TYPEORM_USERNAME: $TYPEORM_USERNAME
           TYPEORM_PASSWORD: $TYPEORM_PASSWORD
           TYPEORM_DATABASE: $TYPEORM_DATABASE
-          TYPEORM_MIGRATIONS: "./migrations/*.ts"
-          TYPEORM_MIGRATIONS_DIR: "./migrations"
+          TYPEORM_MIGRATIONS: "./src/migrations/*.ts"
+          TYPEORM_MIGRATIONS_DIR: "./src/migrations"
     steps:
       - checkout
       - install_awscli
@@ -323,9 +323,9 @@ jobs:
       - run:
           name: Deploy backend
           command: |
-            export TYPEORM_MIGRATIONS_DIR=./migrations
-            export TYPEORM_ENTITIES=./modules/domain/**/*.entity{.ts,.js}
-            export TYPEORM_MIGRATIONS=./migrations/*.ts
+            export TYPEORM_MIGRATIONS_DIR=./src/migrations
+            export TYPEORM_ENTITIES=./src/modules/domain/**/*.entity{.ts,.js}
+            export TYPEORM_MIGRATIONS=./src/migrations/*.ts
 
             cd .circleci/ansible
             cat inventory.txt
